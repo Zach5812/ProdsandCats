@@ -1,0 +1,13 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+<h1><a asp-action="Categories" asp-controller="Home">Categories</a></h1>
+<div>
+    @await Html.PartialAsync("_ProductForm", new Product())
+</div>
+<div>
+    @await Html.PartialAsync("_ProductView")
+

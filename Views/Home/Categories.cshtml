@@ -1,0 +1,11 @@
+@model List<Category>
+<div class="text-center">
+<h1><a asp-action="Index" asp-controller="Home">Products</a></h1>
+<div>
+    @await Html.PartialAsync("_CategoryForm", new Category())
+</div>
+<div>
+    @await Html.PartialAsync("_CategoryView")
+</div>
+
+</div>

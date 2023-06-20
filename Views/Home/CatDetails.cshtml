@@ -1,0 +1,27 @@
+@model Category
+<div style="text-align: center;">
+    <h1>@Model.Name</h1>
+    <h2><a asp-action="Index" asp-controller="Home">Products</a> | <a asp-action="Categories" asp-controller="Home">Categories</a></h2>
+</div>
+<div>
+@foreach (Association association in Model.Associations)
+{
+    @association.Product?.Name
+}
+
+</div>
+
+<div style="text-align: center;">
+    <form asp-action="AddProduct" asp-controller="Home" method="POST" asp-route-ProductId="@Model.CategoryId">
+        <select name="ProductId">
+            @foreach (Product prod in ViewBag.Prod)
+            {
+                
+            <option value="@prod.ProductId">@prod.Name</option>
+            }
+        </select>
+        <button type="submit">
+            Submit
+        </button>
+    </form>
+</div>
